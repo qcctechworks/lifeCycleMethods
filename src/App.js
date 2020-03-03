@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import LifeCycle2 from "./LifeCycle2";
+import UnMounting from './UnMounting';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+class LifeCycle extends Component {
+  constructor() {
+    super();
+    this.state = {
+      items: [],
+    }
+    console.log("this is when the constructor is loaded");
+  }
+
+  componentDidMount () {
+    console.log("This is when the componentDidMount method executed");
+  }
+
+  render () {
+    console.log("this is when the render method executed")
+    return (
+      <div>
+        <LifeCycle2 />
+        <UnMounting />
+      </div>
+    );
+  }
+};
+
+export default LifeCycle;
