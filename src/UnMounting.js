@@ -1,21 +1,21 @@
 import React, {Component} from 'react'
+import ReactDOM from 'react-dom';
 
 class LifeCycleComponent extends Component{
-    getInitialState(){
-      console.clear();
-      return { counter : 0 }
+    constructor () {
+        super();
+        this.state = {
+            counter: 0,
+        }
     }
     _increment=()=> {
       this.setState({ 
         counter : this.state.counter + 1
       }) 
     }
-    componentWillMount(){
-        console.log('componentWillMount')
+    componentDidMount(){
+        console.log('componentDidMount')
         this.interval = setInterval(this._increment, 1000)
-      }
-      componentDidMount(){
-       console.log('componentDidMount')
       }
       componentWillUnmount(){
         console.log('component is about to unmount');
@@ -30,11 +30,11 @@ class LifeCycleComponent extends Component{
   class LifeCycleContainer extends Component {
     
       mount=() =>{
-        React.render(<LifeCycleComponent />, 
+        ReactDOM.render(<LifeCycleComponent />, 
         document.getElementById('renderhere'));
       }
       unmount=()=>{
-         React.unmountComponentAtNode(document.getElementById('renderhere'));
+         ReactDOM.unmountComponentAtNode(document.getElementById('renderhere'));
       }
       render(){
         
